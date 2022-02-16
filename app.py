@@ -17,6 +17,7 @@ stylesheet = "https://codepen.io/chriddyp/pen/bWLwgP.css"
 
 # Setup app and layout/frontend
 app = Dash(__name__, external_stylesheets=[stylesheet])
+server = app.server
 
 app.layout = html.Div(
     [
@@ -36,7 +37,7 @@ app.layout = html.Div(
 )
 
 
-# Set up callbacks/backend
+# Set up callbacks and backend
 @app.callback(Output("bubble_chart", "srcDoc"), Input("year_widget", "value"))
 def plot_altair(year):
     chart = (
